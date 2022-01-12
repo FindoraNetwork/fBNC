@@ -67,7 +67,7 @@ pub(crate) fn rocksdb_clear() {
 pub(crate) fn meta_check(path: &str) -> Result<()> {
     let idx = hash(&path) % DB_NUM;
     let path = format!("{}/{}", BNC_DATA_DIR.as_str(), path);
-    fs::create_dir_all(&path).c(d!(path.clone()))?;
+    fs::create_dir_all(&path).c(d!(path))?;
 
     let mut f = fs::OpenOptions::new()
         .create(true)
